@@ -28,11 +28,13 @@ tmate -S /tmp/tmate.sock wait tmate-ready
 echo ________________________________________________________________________________
 echo
 echo To connect to this session copy-n-paste the following into a terminal:
+echo To connect to this session copy-n-paste the following into a terminal: >> tmtaddr.txt
 tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
 MSG=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}')
 export TMATE_ADDR=$MSG
 echo $MSG >> tmtaddr.txt
 echo After connecting you can run 'touch /tmp/keepalive' to disable the 15m timeout
+echo After connecting you can run 'touch /tmp/keepalive' to disable the 15m timeout >> tmtaddr.txt
 
 if [[ ! -z "$SLACK_WEBHOOK_URL" ]]; then
   MSG=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}')

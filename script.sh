@@ -31,7 +31,7 @@ echo To connect to this session copy-n-paste the following into a terminal:
 tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
 MSG=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}')
 export TMATE_ADDR=$MSG
-echo "::set-output name=TMATE_ADDR::$MSG"
+echo $MSG >> /tmp/tmtaddr
 echo After connecting you can run 'touch /tmp/keepalive' to disable the 15m timeout
 
 if [[ ! -z "$SLACK_WEBHOOK_URL" ]]; then

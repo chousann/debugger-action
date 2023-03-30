@@ -38,17 +38,17 @@ if [[ ! -z "$SLACK_WEBHOOK_URL" ]]; then
 fi
 
 # Wait for connection to close or timeout in 15 min
-timeout=$((15*60))
-while [ -S /tmp/tmate.sock ]; do
-  sleep 1
-  timeout=$(($timeout-1))
-    if (( $timeout%30 == 0 )); then
-      echo $MSG
-    fi
-  if [ ! -f /tmp/keepalive ]; then
-    if (( timeout < 0 )); then
-      echo Waiting on tmate connection timed out!
-      exit 1
-    fi
-  fi
-done
+#timeout=$((15*60))
+#while [ -S /tmp/tmate.sock ]; do
+#  sleep 1
+#  timeout=$(($timeout-1))
+#    if (( $timeout%30 == 0 )); then
+#      echo $MSG
+#    fi
+#  if [ ! -f /tmp/keepalive ]; then
+#    if (( timeout < 0 )); then
+#      echo Waiting on tmate connection timed out!
+#      exit 1
+#    fi
+#  fi
+#done

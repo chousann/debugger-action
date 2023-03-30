@@ -43,7 +43,7 @@ while [ -S /tmp/tmate.sock ]; do
   sleep 1
   timeout=$(($timeout-1))
     if (( $timeout%30 == 0 )); then
-      echo %MSG
+      echo $MSG
     fi
   if [ ! -f /tmp/keepalive ]; then
     if (( timeout < 0 )); then
